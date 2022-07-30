@@ -6,11 +6,7 @@ for i in range(T):
     cnt0_memo = {0: 1, 1: 0}
     cnt1_memo = {0: 0, 1: 1}
     def fibo(n):
-        if n == 0:
-            return n
-        elif n == 1:
-            return n
-        elif n in fibo_memo:
+        if n in fibo_memo:
             n = fibo_memo[n]
             return n
         else:
