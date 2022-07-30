@@ -1,6 +1,3 @@
-n = int(input())
-num_list = []
-for i in range(n):
-    num_list.append(int(input()))
+num_list = [(int(input())) for i in range(int(input()))]  
 for j in sorted(num_list):
     print(j)
