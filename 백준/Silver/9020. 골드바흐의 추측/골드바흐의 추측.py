@@ -1,23 +1,16 @@
-def prime(n):
-    num_list = [False] * 2 + [True] * (n - 1)
-    
-    for num in range(int(n ** 0.5 + 1)):
-        if num_list[num]:
-            for prod_num in range(num + num, n + 1, num):
-                num_list[prod_num] = False
-    
-    return num_list
+import sys
 
-prime_list = prime(10000)
+T = int(sys.stdin.readline())
 
-def partition(n):
-    j = n // 2
-    for i in range(j, 1, -1):
-        if prime_list[i] and prime_list[n - i]:
-            return i, n - i
+prime_bool = [False] * 2 + [True] * (10000 - 1)
+for i in range(2, int(10000 ** 0.5) + 1):
+    for j in range(i + i, 10000, i):
+        if prime_bool[j]:
+            prime_bool[j] = False
 
-T = int(input())
 for i in range(T):
-    n = int(input())
-    a, b = partition(n)
-    print(a, b)
+    n = int(sys.stdin.readline())
+    for i in range(int(n // 2), 1, -1):
+        if prime_bool[i] and prime_bool[n - i]:
+            print(i, n - i)
+            break
