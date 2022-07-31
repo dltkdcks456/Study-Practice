@@ -1,3 +1,3 @@
-num_list = [(int(input())) for i in range(int(input()))]  
-for j in sorted(num_list):
-    print(j)
+import sys
+num_list = [(int(sys.stdin.readline())) for i in range(int(sys.stdin.readline()))]  
+print('\n'.join(map(str, sorted(num_list))))
