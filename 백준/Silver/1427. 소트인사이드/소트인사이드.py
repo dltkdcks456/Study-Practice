@@ -1,9 +1,7 @@
 import sys
-N = sys.stdin.readline().rstrip()
 cnt_num = [0] * 10
 
-for i in N:
+for i in sys.stdin.readline().rstrip():
     cnt_num[int(i)] += 1
 
-for j in range(len(cnt_num) - 1, -1, -1):
-    print(str(j) * cnt_num[j], end='')
+print(''.join([str(j) * cnt_num[j] for j in range(9, -1, -1)]))
