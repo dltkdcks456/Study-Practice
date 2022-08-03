@@ -11,6 +11,6 @@ for i in range(1, max(n, m) + 1):
     if m % i == 0:
         B.add(i)
 
-ans1 = sorted(list(A & B))[-1]
+ans1 = max(list(A & B))
 print(ans1)
 print(ans1 * (n // ans1) * (m // ans1))
