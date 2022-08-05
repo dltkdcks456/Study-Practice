@@ -1,10 +1,4 @@
-N = int(input())
-num_list = []
-
-for n in range(N):
-    num_list.append(tuple(map(int, input().split())))
-
-num_list.sort()
+num_list = sorted(list(tuple(map(int, input().split())) for n in range(int(input()))))
 
 for x in num_list:
     print(' '.join(map(str, x)))
