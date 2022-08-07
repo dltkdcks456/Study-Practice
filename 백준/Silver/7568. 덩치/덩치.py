@@ -1,5 +1,5 @@
 N = int(input())
-student = [tuple(map(int, input().split())) for i in range(N)]
+student = [list(map(int, input().split())) for i in range(N)]
 
 for m in student:
     cnt = 0
