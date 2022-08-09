@@ -1,12 +1,12 @@
 import sys
 
-def board_check(x, y, board):                           # 체스 보드의 변화값을 찾아주는 함수
+def board_check(x, y, board):                       
     WB_board = BW_board = 0
 
-    for i in range(8):                                  # 가로 위치
-        for j in range(8):                              # 세로 위치
+    for i in range(8):                                
+        for j in range(8):                            
             check = board[x + i][y + j + (7 - 2 * j) * (i % 2)]
-            if j % 2 == 0:                              # WB 문양의 반복
+            if j % 2 == 0:                            
                 if check == 'B':
                     WB_board += 1
                 if check == 'W':
