@@ -1,5 +1,6 @@
-N = int(input())
-text = [input() for _ in range(N)]
+import sys
+N = int(sys.stdin.readline())
+text = [sys.stdin.readline().rstrip() for _ in range(N)]
 len_text = sorted(set([len(i) for i in text]))
 ans = []
 for i in len_text:
