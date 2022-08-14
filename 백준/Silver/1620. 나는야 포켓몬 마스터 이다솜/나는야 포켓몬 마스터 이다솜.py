@@ -1,11 +1,11 @@
 import sys
 
-N, M = map(int, input().split())
-poketmon_dict = {sys.stdin.readline().rstrip() : i + 1 for i in range(N)}
-poketmon_dict_rev = {v: k for k, v in poketmon_dict.items()}
+N, M = map(int, sys.stdin.readline().split())
+po = {sys.stdin.readline().rstrip() : i + 1 for i in range(N)}
+po_rev = {v: k for k, v in po.items()}
 for _ in range(M):
     question = sys.stdin.readline().rstrip()
     if question.isalpha():
-        print(poketmon_dict[question])
+        print(po[question])
     else:
-        print(poketmon_dict_rev[int(question)])
+        print(po_rev[int(question)])
