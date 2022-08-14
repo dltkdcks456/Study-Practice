@@ -1,11 +1,7 @@
 import sys
 
-N, M = map(int, sys.stdin.readline().split())
-po = {sys.stdin.readline().rstrip() : i + 1 for i in range(N)}
-po_rev = {v: k for k, v in po.items()}
-for _ in range(M):
-    question = sys.stdin.readline().rstrip()
-    if question.isalpha():
-        print(po[question])
-    else:
-        print(po_rev[int(question)])
+N, M = map(int, sys.stdin.readline().rstrip().split())
+po_li = [0] + [sys.stdin.readline().rstrip() for _ in range(N)]
+po_dict = dict(zip(po_li, range(N + 1)))
+ans = [po_li[int(t)] if (t:= sys.stdin.readline().rstrip()).isdigit() else po_dict[t]  for _ in range(M)]
+print('\n'.join(map(str,ans)))
