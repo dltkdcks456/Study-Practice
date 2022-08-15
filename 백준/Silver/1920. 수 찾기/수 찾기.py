@@ -1,9 +1,10 @@
-N = int(input())
-N_list = set(map(int, input().split()))
-M = int(input())
-M_list = list(map(int, input().split()))
-for i in M_list:
-    if i in N_list:
+import sys
+N = sys.stdin.readline()
+n = set(map(int, sys.stdin.readline().split()))
+M = sys.stdin.readline()
+m = list(map(int, sys.stdin.readline().split()))
+for i in m:
+    if i in n:
         print(1)
     else:
         print(0)
