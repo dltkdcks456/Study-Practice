@@ -1,6 +1,7 @@
-T = int(input())
+import sys
+T = int(sys.stdin.readline())
 for i in range(T):
-    li = input()
+    li = sys.stdin.readline().rstrip()
     ans = 0
     for j in li:
         if j == '(':
