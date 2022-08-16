@@ -1,14 +1,13 @@
-T = int(input())
-for test in range(T):
-    x, y = map(int, input().split())
+import sys
+for test in range(int(sys.stdin.readline())):
+    x, y = map(int, sys.stdin.readline().split())
     diff = y - x
     i = 1
-    while i * (i + 1) <= diff:  # i * (i + 1) <= diff < (i + 1) * (i + 2)
+    while i * (i + 1) <= diff:
         i += 1
-    i = i - 1
-    if i * (i + 1) == diff:
-        print(2 * i)
-    elif diff - i * (i + 1) <= i + 1:
-        print(2 * i + 1)
+    if i * (i - 1) == diff:
+        print(2 * (i - 1))
+    elif diff - i * (i - 1) <= i:
+        print(2 * (i - 1) + 1)
     else:
-        print(2 * i + 2)
+        print(2 * (i - 1) + 2)
