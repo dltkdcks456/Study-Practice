@@ -1,7 +1,8 @@
-N = input()
-N_li = list(map(int, input().split()))
-M = input()
-M_li = list(map(int, input().split()))
+import sys
+N = sys.stdin.readline()
+N_li = list(map(int, sys.stdin.readline().split()))
+M = sys.stdin.readline()
+M_li = list(map(int, sys.stdin.readline().split()))
 N_dict = {}
 for i in N_li:
     if i in N_dict:
