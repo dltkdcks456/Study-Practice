@@ -2,7 +2,7 @@ import sys
 for test in range(int(sys.stdin.readline())):
     x, y = map(int, sys.stdin.readline().split())
     diff = y - x
-    i = 1
+    i = int(diff ** 0.5)
     while i * (i + 1) <= diff:
         i += 1
     if i * (i - 1) == diff:
