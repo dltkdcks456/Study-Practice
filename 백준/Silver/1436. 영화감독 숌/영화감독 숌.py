@@ -1,4 +1,5 @@
-N = int(input())
+import sys
+N = int(sys.stdin.readline())
 cnt = 0
 i = 666
 num = '666'
