@@ -1,7 +1,9 @@
-N, K = map(int, input().split())
+import sys
+
+N, K = map(int, sys.stdin.readline().split())
 room = {}
 for i in range(N):
-    student = input()
+    student = sys.stdin.readline()
     if student in room:
         room[student] += 1
     else:
