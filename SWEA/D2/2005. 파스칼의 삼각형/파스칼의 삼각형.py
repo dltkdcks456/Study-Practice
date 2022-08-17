@@ -1,10 +1,11 @@
+from collections import deque
+
 T = int(input())
 for test in range(T):
-    pascal = [1]
+    pascal = deque([1])
     N = int(input())
     n = 1
-    print(f'#{test + 1}')
-    print(pascal[0])
+    print(f'#{test + 1}', pascal[0], sep = '\n')
     while n < N:
         n += 1
         for i in range(len(pascal) - 1, 0, -1):
