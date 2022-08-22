@@ -1,5 +1,7 @@
-N, K = map(int, input().split())
-num_li = list(map(int, input().split()))
+import sys
+
+N, K = map(int, sys.stdin.readline().split())
+num_li = list(map(int, sys.stdin.readline().split()))
 
 maxV = start = sum(num_li[:K])
 
