@@ -21,6 +21,4 @@ for i in range(6):
 if flag == False:
     del_a = li[0][1] * li[-1][1]
 
-total = maxr * maxc
-ans = (total - del_a) * N
-print(ans)
+print((maxr * maxc - del_a) * N)
