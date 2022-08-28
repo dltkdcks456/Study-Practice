@@ -1,8 +1,10 @@
-N, M = map(int, input().split())
-num_list = sorted(list(map(int, input().split())))
-chosen = [-1] * M # 값을 저장할 곳
-visited = [0] * N # 사용된 값 표시할 곳
-save = set() # 이미 진행된 수열 저장소
+import sys
+
+N, M = map(int, sys.stdin.readline().split())
+num_list = sorted(list(map(int, sys.stdin.readline().split())))
+chosen = [-1] * M
+visited = [0] * N
+save = set()
 
 def perm(n, M):
     if n == M:
