@@ -1,5 +1,6 @@
-K, N = map(int, input().split())
-li = sorted([int(input()) for _ in range(K)])
+import sys
+K, N = map(int, sys.stdin.readline().split())
+li = sorted([int(sys.stdin.readline()) for _ in range(K)])
 start = 1
 end = li[-1]
 
