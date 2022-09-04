@@ -8,7 +8,7 @@ for _ in range(N):
 minV = min(block)
 maxV = max(block)
 
-ans_time = 9999999999999
+ans_time = 0
 ans_height = 0
 
 for i in range(minV, maxV + 1):
@@ -32,8 +32,12 @@ for i in range(minV, maxV + 1):
             fill = sum_plus + rest
             time += abs(sum_minus) + 3 * rest + 2 * fill
 
-    if time <= ans_time:
+    if ans_time == 0:
         ans_time = time
         ans_height = i
+    else:
+        if time <= ans_time:
+            ans_time = time
+            ans_height = i
 
 print(ans_time, ans_height)
