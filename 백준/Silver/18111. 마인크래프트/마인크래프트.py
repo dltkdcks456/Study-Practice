@@ -8,19 +8,17 @@ for _ in range(N):
 minV = min(block)
 maxV = max(block)
 
-ans_time = 0
-ans_height = 0
+ans_time = ans_height = 0
 
 for i in range(minV, maxV + 1):
-    height = block[:]
     sum_minus = sum_plus = time = 0
 
     for j in range(N * M):
-        height[j] -= i
-        if height[j] < 0:
-            sum_minus += height[j]
+        diff = block[j] - i
+        if diff < 0:
+            sum_minus += diff
         else:
-            sum_plus += height[j]
+            sum_plus += diff
 
     if sum_minus + sum_plus + B < 0:
         continue
