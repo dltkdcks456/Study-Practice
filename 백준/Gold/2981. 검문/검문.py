@@ -16,7 +16,13 @@ for j in li:
     gdc_num = gdc(gdc_num, j)
     if minV > gdc_num:
         minV = gdc_num
-    
-for k in range(2, minV + 1):
+
+num= set()
+for k in range(1, int(minV ** (1 / 2)) + 1):
     if minV % k == 0:
-        print(k, end=' ')
+        num.add(k)
+        num.add(minV//k)
+        
+num = sorted(list(num))
+for l in range(1, len(num)):
+    print(num[l], end= ' ')
