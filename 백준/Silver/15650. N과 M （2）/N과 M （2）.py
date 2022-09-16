@@ -1,12 +1,14 @@
-n, m = map(int, input().split())
-a = list(range(1, n + 1))
-chosen = [-1] * m
+N, M = map(int, input().split())
+li = list(range(1, N + 1))
 
 def perm(n, m, j):
     if n == m:
-        print(' '.join(map(str, chosen)))
+        print(*chosen)
         return
-    for i in range(j, len(a)):
-        chosen[n] = a[i]
-        perm(n + 1, m, i + 1)
-perm(0, m, 0)
+    else:
+        for i in range(j, len(li)):
+            chosen[n] = li[i]             
+            perm(n + 1, m, i + 1)
+  
+chosen = [-1] * M
+perm(0, M, 0)
