@@ -1,11 +1,12 @@
-from collections import deque
-
-K = int(input())
-dq = deque()
+import sys
+K = int(sys.stdin.readline())
+li = [0] * 100001
+last = -1
 for _ in range(K):
-    n = int(input())
+    n = int(sys.stdin.readline())
     if n == 0:
-        dq.pop()
+        last -= 1
     else:
-        dq.append(n)
-print(sum(dq))
+        last += 1
+        li[last] = n
+print(sum(li[:last + 1]) if last != -1 else 0)
