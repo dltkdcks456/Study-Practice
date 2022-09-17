@@ -1,41 +1,32 @@
 import sys
-
 N, M, B = map(int, sys.stdin.readline().split())
-block = []
+li = []
+
 for _ in range(N):
-    block.extend(map(int, sys.stdin.readline().split()))
+    li.extend(map(int, sys.stdin.readline().split()))
+    
+minT = 500 * 500 * 256
+maxH = 0
 
-minV = min(block)
-maxV = max(block)
-
-ans_time = ans_height = 0
-
-for i in range(minV, maxV + 1):
-    sum_minus = sum_plus = time = 0
-
-    for j in range(N * M):
-        diff = block[j] - i
-        if diff < 0:
-            sum_minus += diff
-        else:
-            sum_plus += diff
-
-    if sum_minus + sum_plus + B < 0:
-        continue
+for h in range(min(li), max(li) + 1):
+    minus_total = plus_total = time = 0
+    for i in li:
+        diff = i - h
+        if diff > 0:
+            plus_total += diff
+        elif diff < 0:
+            minus_total += diff
+            
+    if plus_total + B >= -minus_total:
+        time += - minus_total + plus_total * 2
     else:
-        if sum_minus <= B:
-            time += abs(sum_minus) + 2 * (sum_plus)
-        else:
-            rest = sum_minus + B
-            fill = sum_plus + rest
-            time += abs(sum_minus) + 3 * rest + 2 * fill
+        break
+    
+    if time < minT:
+        minT = time
+        maxH = h
+    elif time == minT:
+        if h > maxH:
+            maxH = h
 
-    if ans_time == 0:
-        ans_time = time
-        ans_height = i
-    else:
-        if time <= ans_time:
-            ans_time = time
-            ans_height = i
-
-print(ans_time, ans_height)
+print(minT, maxH)
