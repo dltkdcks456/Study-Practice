@@ -1,3 +1,5 @@
+import sys
+
 def bfs(r, c):
     land[r][c] = 0
     q.append([r, c])
@@ -11,12 +13,12 @@ def bfs(r, c):
                 q.append([nr, nc])
 
 
-T = int(input())
+T = int(sys.stdin.readline())
 for test in range(T):
-    M, N, K = map(int, input().split())
+    M, N, K = map(int, sys.stdin.readline().split())
     land = [[0] * M for _ in range(N)]
     for _ in range(K):
-        c, r = map(int, input().split())
+        c, r = map(int, sys.stdin.readline().split())
         land[r][c] = 1
     cnt = 0
     q = []
