@@ -1,9 +1,12 @@
-n = int(input())
-stack = []
+import sys
+from collections import deque
+
+n = int(sys.stdin.readline())
+stack = deque()
 last = 0
-result = []
+result = deque()
 for i in range(n):
-    data = int(input())
+    data = int(sys.stdin.readline())
     if stack:
         if stack[-1] <= data:
             while stack[-1] != data:
