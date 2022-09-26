@@ -12,12 +12,12 @@ def bfs(n):
                 cnt += 1
                 q.append(w)
 
-node = int(input())
-E = int(input())
+node = int(sys.stdin.readline())
+E = int(sys.stdin.readline())
 path = [[] for _ in range(node + 1)]
 visited = [0] * (node + 1)
 for _ in range(E):
-    a, b = map(int, input().split())
+    a, b = map(int, sys.stdin.readline().split())
     path[a].append(b)
     path[b].append(a)
 q = deque()
