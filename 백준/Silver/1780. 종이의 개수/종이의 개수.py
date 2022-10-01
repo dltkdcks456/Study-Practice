@@ -24,8 +24,8 @@ def cut(r, c, K):
             for ck_c in range(3):
                 cut(r + ck_r * K, c + ck_c * K, K)
 
-N = int(input())
-paper = [list(map(int, input().split())) for _ in range(N)]
+N = int(sys.stdin.readline())
+paper = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 cnt_0 = cnt_p1 = cnt_m1 = 0
 cut(0, 0, N)
 print(cnt_m1)
