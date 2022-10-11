@@ -1,3 +1,5 @@
+import sys
+
 def find_par(n):
     Li = []
     while n:
@@ -6,14 +8,14 @@ def find_par(n):
     return Li
 
 
-T = int(input())
+T = int(sys.stdin.readline())
 for test in range(T):
-    N = int(input())
+    N = int(sys.stdin.readline())
     par = [0] * (N + 1)
     for _ in range(N - 1):
-        A, B = map(int, input().split())
+        A, B = map(int, sys.stdin.readline().split())
         par[B] = A
-    x, y = map(int, input().split())
+    x, y = map(int, sys.stdin.readline().split())
     X = find_par(x)
     Y = find_par(y)
     for i in X:
