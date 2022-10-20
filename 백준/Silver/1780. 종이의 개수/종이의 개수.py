@@ -1,33 +1,30 @@
 import sys
+sys = sys.stdin.readline
 
-def cut(r, c, K):
-    global cnt_0, cnt_m1, cnt_p1
-    shape = paper[r][c]
+def cut(x, y, size):
+    init_V = paper[x][y]
     flag = True
-    for nr in range(r, r + K):
-        for nc in range(c, c + K):
-            if paper[nr][nc] != shape:
+    for dr in range(size):
+        for dc in range(size):
+            nr = x + dr
+            nc = y + dc
+            if paper[nr][nc] != init_V:
                 flag = False
                 break
         if not flag:
             break
     if flag:
-        if shape == 1:
-            cnt_p1 += 1
-        elif shape == 0:
-            cnt_0 += 1
-        else:
-            cnt_m1 += 1
+        result[init_V] += 1
+        return
     else:
-        K //= 3
-        for ck_r in range(3):
-            for ck_c in range(3):
-                cut(r + ck_r * K, c + ck_c * K, K)
+        for i in range(3):
+            for j in range(3):
+                cut(x + (size//3) * i, y + (size//3) * j, size//3)
 
-N = int(sys.stdin.readline())
-paper = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
-cnt_0 = cnt_p1 = cnt_m1 = 0
+N = int(input())
+paper = [list(map(int, input().split())) for _ in range(N)]
+result = [0] * 3
 cut(0, 0, N)
-print(cnt_m1)
-print(cnt_0)
-print(cnt_p1)
+print(result[-1])
+print(result[0])
+print(result[1])
