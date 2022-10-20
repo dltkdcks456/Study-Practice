@@ -20,8 +20,6 @@ while q:
     print(v, end = ' ')
     for w in adjList[v]:
         connect[w] -= 1
-
-    for j in range(1, N + 1):
-        if connect[j] == 0:
-            q.append(j)
-            connect[j] = -1
+        if connect[w] == 0:
+            q.append(w)
+            connect[w] = -1
