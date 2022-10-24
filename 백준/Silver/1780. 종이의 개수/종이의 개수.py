@@ -1,28 +1,21 @@
 import sys
-input = sys.stdin.readline
 
 def cut(x, y, size):
     init_V = paper[x][y]
-    flag = True
     for dr in range(size):
-        for dc in range(size):
-            nr = x + dr
-            nc = y + dc
-            if paper[nr][nc] != init_V:
-                flag = False
-                break
-        if not flag:
-            break
-    if flag:
-        result[init_V] += 1
-        return
-    else:
-        for i in range(3):
-            for j in range(3):
-                cut(x + (size//3) * i, y + (size//3) * j, size//3)
+        check = set(paper[x + dr][y: y + size])
+        if len(check) >= 2 or init_V not in check:
+            new_size = size // 3
+            for i in range(3):
+                for j in range(3):
+                    cut(x + new_size * i, y + new_size * j, new_size)
+            return
+    result[init_V] += 1
+    return
 
-N = int(input())
-paper = [list(map(int, input().split())) for _ in range(N)]
+
+N = int(sys.stdin.readline())
+paper = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 result = [0] * 3
 cut(0, 0, N)
 print(result[-1])
