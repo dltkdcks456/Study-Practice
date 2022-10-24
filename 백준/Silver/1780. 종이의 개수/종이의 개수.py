@@ -1,5 +1,5 @@
 import sys
-sys = sys.stdin.readline
+input = sys.stdin.readline
 
 def cut(x, y, size):
     init_V = paper[x][y]
