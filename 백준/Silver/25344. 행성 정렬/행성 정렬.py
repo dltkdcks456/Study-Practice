@@ -2,9 +2,11 @@ import sys
 input = sys.stdin.readline
 
 def gcb(a, b):
-    if b == 0:
-        return a
-    return gcb(b, a % b)
+    while b != 0:
+        temp = b
+        b = a % b
+        a = temp
+    return a
 
 
 N = int(input())
@@ -14,7 +16,7 @@ if N == 3:
 else:
     temp = gcb(T[0], T[1])
     minV = T[0] * T[1] // temp
-    for i in range(2, N - 2):
+    for i in range(1, N - 2):
         temp = gcb(T[i], minV)
         minV = minV * T[i] // temp
     print(minV)
