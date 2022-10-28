@@ -14,7 +14,10 @@ for _ in range(M):
         G += 1
     else:
         B += 1
-
+G = G % 2
+minV = min(R, B)
+R = R - minV
+B = B - minV
 i = 1
 while True:
     if G > 0:
