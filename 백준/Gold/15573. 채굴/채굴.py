@@ -7,15 +7,15 @@ mineral = [list(map(int, input().split())) for _ in range(N)]
 q = []
 dr = [0, 1, 0, -1]
 dc = [1, 0, -1, 0]
-visited = set()
+visited = [[0] * M for _ in range(N)]
 for c in range(M):
     heapq.heappush(q, [mineral[0][c], 0, c])
-    visited.add((0, c))
+    visited[0][c] = 1
 for r in range(1, N):
     heapq.heappush(q, [mineral[r][0], r, 0])
+    visited[r][0] = 1
     heapq.heappush(q, [mineral[r][M - 1], r, M - 1])
-    visited.add((r, 0))
-    visited.add((r, M - 1))
+    visited[r][M - 1] = 1
 
 cnt = D = 0
 
@@ -28,7 +28,7 @@ while cnt != K and q:
     for d in range(4):
         nr = rr + dr[d]
         nc = cc + dc[d]
-        if (nr, nc) not in visited and 0 <= nr < N and 0 <= nc < M:
+        if 0 <= nr < N and 0 <= nc < M and visited[nr][nc] == 0:
             heapq.heappush(q, [mineral[nr][nc], nr, nc])
-            visited.add((nr, nc))
+            visited[nr][nc] = 1
 print(D)
