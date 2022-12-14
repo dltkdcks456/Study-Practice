@@ -41,18 +41,14 @@ def move():
 R, C = map(int, input().split())
 maze = [list(input().rstrip()) for _ in range(R)]
 visited = [[0] * C for _ in range(R)]
-pos = []
-dr = [0, 1, 0, -1]
-dc = [1, 0, -1, 0]
+pos = deque()
 for i in range(R):
     for j in range(C):
         if maze[i][j] == 'J':
             pos.append([i, j, 'J'])
             visited[i][j] = 1
         elif maze[i][j] == 'F':
-            pos.append([i, j, 'F'])
-pos.sort(key=lambda x: x[2])
-pos = deque(pos)
+            pos.appendleft([i, j, 'F'])
 ans = 0
 move()
 if ans:
