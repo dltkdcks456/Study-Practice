@@ -54,12 +54,8 @@ for i in range(R):
 pos.sort(key=lambda x: x[2])
 pos = deque(pos)
 ans = 0
-# print(pos)
 move()
 if ans:
     print(ans)
 else:
     print('IMPOSSIBLE')
-# print(maze)
-# for l in visited:
-#     print(l)
