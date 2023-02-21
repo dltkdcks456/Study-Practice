@@ -2,6 +2,7 @@
 여러 섬들 중에서 거리가 가장 긴 값을 찾으면 된다.
 브루트 포스 + 너비 우선 탐색 + 최댓값
 '''
+import sys
 from collections import deque
 
 def bfs(r, c):
@@ -37,8 +38,8 @@ def bfs(r, c):
 
 if __name__ == '__main__':
     # 입력값 받기
-    N, M = map(int, input().split())
-    land = [list(input().strip()) for _ in range(N)]
+    N, M = map(int, sys.stdin.readline().split())
+    land = [list(sys.stdin.readline().strip()) for _ in range(N)]
     
     ans_time = 0
     
@@ -46,6 +47,9 @@ if __name__ == '__main__':
     for r in range(N):
         for c in range(M):
             if land[r][c] == 'L':
+                if 0 <= r - 1 < N and 0 <= r + 1 < N and land[r - 1][c] == 'L' and land[r + 1][c] == 'L':
+                    continue
+                if 0 <= c - 1 < M and 0 <= c + 1 < M and land[r][c - 1] == 'L' and land[r][c + 1] == 'L':
+                    continue
                 bfs(r, c)
-    
     print(ans_time)
