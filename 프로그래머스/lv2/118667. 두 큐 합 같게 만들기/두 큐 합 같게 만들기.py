@@ -8,8 +8,8 @@ def solution(queue1, queue2):
     point1 = point2 = -1
     total_sumV = (sum(queue1) + sum(queue2))
     
-    # if total_sumV % 2:
-    #     return -1
+    if total_sumV % 2:
+        return -1
     
     goal_sumV = total_sumV // 2
     sumV = 0
