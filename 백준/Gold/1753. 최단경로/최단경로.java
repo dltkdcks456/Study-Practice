@@ -67,9 +67,10 @@ public class Main {
                 }
             }
         }
+        StringBuilder sb = new StringBuilder();
         for(int m = 1; m < V + 1; m++) {
-            bw.write(dist[m] == Integer.MAX_VALUE ? "INF\n" : dist[m] + "\n");
+            sb.append(dist[m] == Integer.MAX_VALUE ? "INF\n" : dist[m] + "\n");
         }
-        bw.close();
+        System.out.println(sb.toString());
     }
 }
