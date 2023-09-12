@@ -5,7 +5,8 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class Main {
-    static class Node {
+
+    static class Node implements Comparable<Node> {
         // 변수
         int idx;
         int cost;
@@ -13,6 +14,11 @@ public class Main {
         public Node(int idx, int cost) {
             this.idx = idx;
             this.cost = cost;
+        }
+
+        @Override
+        public int compareTo(Node o) {
+            return this.cost - o.cost;
         }
     }
     public static void main(String[] args) throws IOException {
@@ -27,7 +33,7 @@ public class Main {
         int start = Integer.parseInt(br.readLine());
 
         // 노드의 정보를 담을 리스트 생성
-        ArrayList<ArrayList<Node>> graph = new ArrayList<ArrayList<Node>>();
+        ArrayList<ArrayList<Node>> graph = new ArrayList<>();
         // 노드가 들어갈 내부 리스트 생성
         for(int i = 0; i < V + 1; i++) {
             graph.add(new ArrayList<Node>());
@@ -50,7 +56,7 @@ public class Main {
         dist[start] = 0;
 
         // 우선순위 큐 활용
-        PriorityQueue<Node> q = new PriorityQueue<Node>((o1, o2) -> Integer.compare(o1.cost, o2.cost));
+        PriorityQueue<Node> q = new PriorityQueue<>();
         q.offer(new Node(start, 0));
         while(!q.isEmpty()) {
             Node currNode = q.poll();
@@ -68,6 +74,7 @@ public class Main {
             }
         }
         StringBuilder sb = new StringBuilder();
+
         for(int m = 1; m < V + 1; m++) {
             sb.append(dist[m] == Integer.MAX_VALUE ? "INF\n" : dist[m] + "\n");
         }
