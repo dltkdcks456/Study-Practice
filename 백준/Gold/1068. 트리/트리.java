@@ -6,8 +6,9 @@ import java.util.StringTokenizer;
 
 public class Main {
     static ArrayList<Integer>[] graph;
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static int[] parents;
-    static int cnt;
+    static int N, cnt, root;
     static void DFS(int node) {
         boolean flag = true;
         for (int i = 0; i < graph[node].size(); i++) {
@@ -18,9 +19,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        int root = 0;
+        N = Integer.parseInt(br.readLine());
+        root = 0;
         cnt = 0;
         StringTokenizer st;
         parents = new int[N];
@@ -44,8 +44,7 @@ public class Main {
             graph[parents[EraseNode]].remove(Integer.valueOf(EraseNode));
             DFS(root);
         }
-
-
+        
         System.out.println(cnt);
     }
 }
