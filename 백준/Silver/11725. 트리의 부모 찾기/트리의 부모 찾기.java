@@ -6,6 +6,8 @@ import java.util.StringTokenizer;
 
 public class Main {
     static int N;
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringBuilder sb = new StringBuilder();
     static ArrayList<Integer> graph[];
     static int[] parents;
     static void find(int currNode, int prevNode) {
@@ -18,7 +20,6 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         N = Integer.parseInt(br.readLine());
         graph = new ArrayList[N + 1];
@@ -35,7 +36,8 @@ public class Main {
         parents = new int[N + 1];
         find(1, 0);
         for (int i = 2; i < N + 1; i++) {
-            System.out.println(parents[i]);
+            sb.append(parents[i]).append('\n');
         }
+        System.out.println(sb.toString());
     }
 }
