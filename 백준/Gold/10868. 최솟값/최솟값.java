@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -9,7 +8,7 @@ public class Main {
     static StringTokenizer st;
     static int N;
     static int[] tree, arr;
-
+    static StringBuilder sb;
     static int Init(int treeIdx, int leftIdx, int rightIdx) {
         if (leftIdx == rightIdx) {
             tree[treeIdx] = arr[leftIdx];
@@ -40,7 +39,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
         int k = 0;
         while ((int) Math.pow(2, k) < N) {
@@ -53,12 +52,13 @@ public class Main {
         }
 
         Init(1, 0, N - 1);
-
+        sb = new StringBuilder();
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            System.out.println(Find(1, 0, N - 1, a - 1, b- 1));
+            sb.append(Find(1, 0, N - 1, a - 1, b- 1)).append('\n');
         }
+        System.out.println(sb.toString());
     }
 }
