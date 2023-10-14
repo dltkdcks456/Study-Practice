@@ -34,16 +34,17 @@ public class Main {
         initSeg(1, 0, N - 1);
 
         int M = Integer.parseInt(br.readLine());
+        sb = new StringBuilder();
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int option = Integer.parseInt(st.nextToken());
             if (option == 1) {
                 updateSeg(1, 0, N - 1, Integer.parseInt(st.nextToken()) - 1, Integer.parseInt(st.nextToken()) - 1, Integer.parseInt(st.nextToken()));
             } else {
-                System.out.println(findSeg(1, 0, N - 1, Integer.parseInt(st.nextToken()) - 1));
+                sb.append(findSeg(1, 0, N - 1, Integer.parseInt(st.nextToken()) - 1)).append('\n');
             }
         }
-
+        System.out.println(sb.toString());
 
     }
 
