@@ -29,13 +29,13 @@ public class Main {
                 if (k == patterLen - 1) {
                     k = table[k];
                     cnt++;
-                    sb.append(String.valueOf(i + 1 - (patterLen - 1))).append(" ");
+                    sb.append(i + 1 - (patterLen - 1)).append(" ");
                 } else {
                     k++;
                 }
             }
         }
-        sb.insert(0, String.valueOf(cnt) + "\n");
+        sb.insert(0, cnt + "\n");
         System.out.println(sb);
     }
 
