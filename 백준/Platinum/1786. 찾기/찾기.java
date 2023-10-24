@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,19 +17,19 @@ public class Main {
 
         int totalLen = T.length();
         int k = 0, cnt = 0;
-        ArrayList<Integer> arr = new ArrayList<>();
+
         sb = new StringBuilder();
-        for (int i = 0; i < totalLen; i++) {
+        for (int i = 0; i < totalLen; ++i) {
             while (k > 0 && (T.charAt(i) != P.charAt(k))) {
                 k = table[k - 1];
             }
             if (T.charAt(i) == P.charAt(k)) {
                 if (k == patterLen - 1) {
                     k = table[k];
-                    cnt++;
-                    sb.append(i + 1 - (patterLen - 1)).append(" ");
+                    ++cnt;
+                    sb.append(i + 2 - patterLen).append(" ");
                 } else {
-                    k++;
+                    ++k;
                 }
             }
         }
@@ -42,7 +40,7 @@ public class Main {
     static void failure(String str, int L) {
         table = new int[L];
         int j = 0;
-        for (int i = 1; i < L; i++) {
+        for (int i = 1; i < L; ++i) {
             while(j > 0 && (str.charAt(i) != str.charAt(j))) {
                 j = table[j - 1];
             }
