@@ -5,8 +5,7 @@ import java.io.InputStreamReader;
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringBuilder sb;
-    static boolean flag;
-    static int N, cnt;
+    static int N, cnt, prevNum;
     static int[][] memo;
     static int[] arr, visited;
 
@@ -27,9 +26,8 @@ public class Main {
             }
             cnt = 0;
             visited = new int[101];
-
+            prevNum = 0;
             for (int i = 1; i <= 100; i++) {
-                int prevNum = 0;
                 for (int j = 0; j < N; j++) {
                     if (arr[j] == i) {
                         if (visited[i] == 0) {
@@ -44,7 +42,7 @@ public class Main {
                         prevNum = arr[j];
                         continue;
                     }
-                    prevNum = gcd(prevNum, arr[j]);
+                    prevNum = memo[prevNum][arr[j]];
                     if (prevNum % i == 0) {
                         if (prevNum == i) {
                             if (visited[i] == 0) {
@@ -58,10 +56,8 @@ public class Main {
                     } else {
                         prevNum = arr[j];
                     }
-
                 }
             }
-
             sb.append(cnt).append('\n');
         }
         System.out.println(sb);
